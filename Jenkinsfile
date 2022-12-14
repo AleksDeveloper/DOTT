@@ -24,8 +24,8 @@ pipeline {
                 sh 'echo Here goes Static Code Analysis'
                 withSonarQubeEnv('SonarCloud') {
                     sh '''${scannerHome}/bin/sonar-scanner \
-                        -Dsonar.organization=AleksDeveloper \
-                        -Dsonar.projectKey=AleksDeveloper_DOTT \
+                        -Dsonar.organization=aleksdeveloper \
+                        -Dsonar.projectKey=aleksdeveloper_DOTT \
                         -Dsonar.sources=./cidr_convert_api/go/ \
                         -Dsonar.host.url=https://sonarcloud.io
                     '''
