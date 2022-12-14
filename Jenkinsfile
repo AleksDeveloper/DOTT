@@ -66,7 +66,9 @@ pipeline {
             }
         }
         stage('Deployment'){
-            sh 'echo Here goes the Deployment'
+            steps{
+                sh 'echo Here goes the Deployment'
+            }
         }
         stage('Example') {
             steps {
