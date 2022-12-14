@@ -14,8 +14,8 @@ pipeline {
                 echo 'Installing dependencies'
                 sh 'go version'
                 sh 'cd ./cidr_convert_api/go/'
-                sh 'go get -u golang.org/x/lint/golint'
-                sh 'go get github.com/Pepegasca/goop'
+                sh 'go install golang.org/x/lint/golint'
+                sh 'go install github.com/Pepegasca/goop'
             }
         }
         stage('Static Code Analysis (SonarQube)') {
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Example') {
             steps {
-                sh 'echo ***********GO VERSION******************'
+                sh 'echo ***********GO VERSION*******************'
                 sh 'go version'
             }
         }
