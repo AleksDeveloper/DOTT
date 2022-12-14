@@ -7,6 +7,7 @@ pipeline {
         GO114MODULE = 'on'
         CGO_ENABLED = 0
         GOPATH = "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"
+        scannerHome = tool 'SQS 4.7.0.2747';
     }
     stages {
         stage('Pre Test') {
@@ -21,7 +22,6 @@ pipeline {
         stage('Static Code Analysis (SonarQube)') {
             steps {
                 sh 'echo Here goes Static Code Analysis'
-                def scannerHome = tool 'SQS 4.7.0.2747';
                 withSonarQubeEnv('SonarCloud') {
                     sh '''${scannerHome}/bin/sonar-scanner \
                         -Dsonar.organization=AleksDeveloper \
