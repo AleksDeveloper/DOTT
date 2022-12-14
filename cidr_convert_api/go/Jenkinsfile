@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Example') {
             steps {
-                sh 'echo ***********GO VERSION******************'
+                sh 'echo ***********GO VERSION*******************'
                 sh 'go version'
             }
         }
