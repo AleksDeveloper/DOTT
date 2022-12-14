@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Static Code Analysis (SonarQube)') {
             steps {
-                sh 'Here goes Static Code Analysis'
+                sh 'echo Here goes Static Code Analysis'
             }
         }
         stage('Example') {
