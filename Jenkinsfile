@@ -14,6 +14,7 @@ pipeline {
             steps {
                 echo 'Installing dependencies'
                 sh 'go version'
+                sh 'docker --version'
                 sh 'cd ./cidr_convert_api/go/'
                 sh 'go install golang.org/x/lint/golint@latest'
                 sh 'go install github.com/Pepegasca/goop@latest'
