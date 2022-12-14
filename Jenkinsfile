@@ -43,9 +43,9 @@ pipeline {
                 sh '''
                     echo 'BUILD'
                     cd ./cidr_convert_api/go/
-                    sudo docker build . -t aleks-devops
-                    sudo docker tag aleks-devops aleksdeveloper/aleks-devops
-                    sudo docker push aleksdeveloper/aleks-devops
+                    docker build . -t aleks-devops
+                    docker tag aleks-devops aleksdeveloper/aleks-devops
+                    docker push aleksdeveloper/aleks-devops
                  '''
             }
           
