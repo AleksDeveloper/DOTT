@@ -32,10 +32,41 @@ pipeline {
                 }
             }
         }
-        stage('Quality gate'){
+        /*stage('Quality gate'){
             steps {
                 waitForQualityGate abortPipeline: true
             }
+        }*/
+        stage('Build'){
+            steps{
+                sh '''
+                    echo 'BUILD'
+                    cd ./cidr_convert_api/go/
+                    sudo docker build . -t aleks-devops
+                    sudo docker tag aleks-devops aleksdeveloper/aleks-devops
+                    sudo docker push aleksdeveloper/aleks-devops
+                 '''
+            }
+          
+        }
+        stage('Unit Tests'){
+            steps{
+                echo '*****VETTING******'
+                sh '''
+                    cd ./cidr_convert_api/go/
+                    go vet .
+                '''
+                echo '*****UNIT TESTING*****'
+                sh '''
+                    cd ./cidr_convert_api/go/
+                    go test -cover -coverprofile='cover.out'
+                '''
+                echo '*****LINTING******'
+                sh 'golint ./cidr_convert_api/go/' 
+            }
+        }
+        stage('Deployment'){
+            sh 'echo Here goes the Deployment'
         }
         stage('Example') {
             steps {
