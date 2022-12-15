@@ -68,6 +68,8 @@ pipeline {
                 script{
                     try{
                         sh '''
+                        go mod init example.com/m
+                        go mod tidy
                         go test -cover -coverprofile='cover.out'
                         '''
                     }catch(error){
