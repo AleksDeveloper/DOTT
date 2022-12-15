@@ -62,14 +62,14 @@ pipeline {
                     cd ./cidr_convert_api/go/
                     go vet .
                 '''
-                echo '*****UNIT TESTING*****'
-                sh '''
+
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+                    echo '*****UNIT TESTING*****'
+                    sh '''
                     cd ./cidr_convert_api/go/
                     go test -coverprofile='cover.out'
                     go tool cover -html=coverage.out
                 '''
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                    sh "exit 1"
                 }
                 echo '*****LINTING******'
                 sh 'golint ./cidr_convert_api/go/' 
