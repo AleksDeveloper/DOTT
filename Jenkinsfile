@@ -64,12 +64,13 @@ pipeline {
                 '''
 
                 echo '*****UNIT TESTING*****'
-                sh 'cd ./cidr_convert_api/go/'
+                sh '''cd ./cidr_convert_api/go/
+                      go mod init example.com/m
+                    go mod tidy
+                '''
                 script{
                     try{
                         sh '''
-                        go mod init example.com/m
-                        go mod tidy
                         go test -cover -coverprofile='cover.out'
                         '''
                     }catch(error){
