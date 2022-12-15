@@ -67,13 +67,15 @@ pipeline {
                 sh 'cd ./cidr_convert_api/go/'
                 script{
                     try{
-                        sh 'go test -coverprofile=coverage.out'
+                        sh '''
+                        go test -coverprofile='cover.out'
+                        '''
                     }catch(error){
                         echo error.getMessage()
                     }
                 }
                 echo currentBuild.result
-                sh 'go tool cover -html=coverage.out'
+                sh 'go tool cover -html=cover.out'
 
                 echo '*****LINTING******'
                 sh 'golint ./cidr_convert_api/go/' 
