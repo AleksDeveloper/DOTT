@@ -92,14 +92,21 @@ pipeline {
                     go test -coverprofile='cover.out'
                     go tool cover -html=cover.out
                 '''*/
-                
+            }
+        }
+        stage('Linting'){
+            steps{
                 /*echo '*****LINTING******'
                 sh 'golangci-lint run ./cidr_convert_api/go/'*/
             }
         }
         stage('Deployment'){
             steps{
-                sh 'echo Here goes the Deployment'
+                sh 'echo ************DEPLOYMENT*************'
+                sh '''
+                docker pull alejandrodjc/aleks-devops
+                docker run -d --name goproject aleks-devops
+                '''
             }
         }
         stage('Example') {
