@@ -56,10 +56,10 @@ pipeline {
         stage('Unit Tests'){
             steps{
                 echo '*****VETTING******'
+                    //(just first time used go mod init example.com/m)
+                    //(just first time used go mod tidy)
                 sh '''
                     cd ./cidr_convert_api/go/
-                    echo (just first time used go mod init example.com/m)
-                    echo (just first time used go mod tidy)
                     go vet .
                 '''
                 echo '*****UNIT TESTING*****'
