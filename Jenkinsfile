@@ -64,19 +64,16 @@ pipeline {
                 '''
 
                 echo '*****UNIT TESTING*****'
-
+                sh 'cd ./cidr_convert_api/go/'
                 script{
                     try{
-                        sh '''
-                        cd ./cidr_convert_api/go/
-                        go test -coverprofile='cover.out'
-                        go tool cover -html=coverage.out
-                    '''
+                        sh 'go test -coverprofile=coverage.out'
                     }catch(error){
                         echo error.getMessage()
                     }
                 }
                 echo currentBuild.result
+                sh 'go tool cover -html=coverage.out'
 
                 echo '*****LINTING******'
                 sh 'golint ./cidr_convert_api/go/' 
