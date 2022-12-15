@@ -69,6 +69,8 @@ pipeline {
                 script{
                     try{
                         sh '''
+                        pwd
+                        ls -la
                         go test -cover -coverprofile='cover.out'
                         '''
                     }catch(error){
