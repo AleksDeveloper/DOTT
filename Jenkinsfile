@@ -56,8 +56,8 @@ pipeline {
         stage('Unit Tests'){
             steps{
                 echo '*****VETTING******'
-                    //(just first time used go mod init example.com/m)
-                    //(just first time used go mod tidy)
+                    //(just first time used: go mod init example.com/m)
+                    //(just first time used: go mod tidy)
                 sh '''
                     cd ./cidr_convert_api/go/
                     go vet .
@@ -65,7 +65,8 @@ pipeline {
                 echo '*****UNIT TESTING*****'
                 sh '''
                     cd ./cidr_convert_api/go/
-                    go test -cover -coverprofile='cover.out'
+                    go test -coverprofile='cover.out'
+                    go tool cover -html=coverage.out
                 '''
                 echo '*****LINTING******'
                 sh 'golint ./cidr_convert_api/go/' 
