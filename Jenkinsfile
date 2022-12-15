@@ -94,7 +94,7 @@ pipeline {
                 '''*/
                 
                 echo '*****LINTING******'
-                sh 'golint ./cidr_convert_api/go/' 
+                sh 'golangci-lint ./cidr_convert_api/go/' 
             }
         }
         stage('Deployment'){
