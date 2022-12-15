@@ -82,6 +82,7 @@ pipeline {
                 sh '''
                     pwd
                     ls -la
+                    cd cidr_convert_api/go/
                     go tool cover -html=cover.out
                 '''
 
