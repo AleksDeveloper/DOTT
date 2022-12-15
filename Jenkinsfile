@@ -68,7 +68,7 @@ pipeline {
                 script{
                     try{
                         sh '''
-                        go test -coverprofile='cover.out'
+                        go test -cover -coverprofile='cover.out'
                         '''
                     }catch(error){
                         echo error.getMessage()
