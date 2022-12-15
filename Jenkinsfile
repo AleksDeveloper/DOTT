@@ -65,8 +65,6 @@ pipeline {
                 
                 echo '*****UNIT TESTING*****'
                 sh '''cd ./cidr_convert_api/go/
-                      go mod init example.com/m
-                    go mod tidy
                 '''
                 script{
                     try{
