@@ -93,8 +93,8 @@ pipeline {
                     go tool cover -html=cover.out
                 '''*/
                 
-                echo '*****LINTING******'
-                sh 'golangci-lint run ./cidr_convert_api/go/' 
+                /*echo '*****LINTING******'
+                sh 'golangci-lint run ./cidr_convert_api/go/'*/
             }
         }
         stage('Deployment'){
