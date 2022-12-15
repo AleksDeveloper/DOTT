@@ -39,7 +39,7 @@ pipeline {
             }
         }*/
         
-        /*stage('Build'){
+        stage('Build'){
             steps{
                 sh '''
                     echo 'BUILD'
@@ -51,7 +51,7 @@ pipeline {
                  '''
             }
           
-        }*/
+        }
         stage('Unit Tests'){
             steps{
                 echo '*****VETTING******'
