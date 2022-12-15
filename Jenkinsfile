@@ -42,7 +42,7 @@ pipeline {
         stage('Build'){
             steps{
                 sh '''
-                    echo 'BUILD'
+                    echo '*******BUILD*********'
                     cd ./cidr_convert_api/go/
                     pwd
                     whoami
@@ -58,8 +58,8 @@ pipeline {
                 echo '*****VETTING******'
                 sh '''
                     cd ./cidr_convert_api/go/
-                    go mod init example.com/m
-                    go mod tidy
+                    echo (just first time used go mod init example.com/m)
+                    echo (just first time used go mod tidy)
                     go vet .
                 '''
                 echo '*****UNIT TESTING*****'
