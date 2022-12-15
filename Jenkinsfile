@@ -105,7 +105,7 @@ pipeline {
                 sh 'echo ************DEPLOYMENT*************'
                 sh '''
                 docker pull alejandrodjc/aleks-devops
-                docker run -d --name goproject aleks-devops
+                docker run -d --name goproject -p 9050:9050 aleks-devops
                 '''
             }
         }
