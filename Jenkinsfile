@@ -79,7 +79,11 @@ pipeline {
                     }
                 }
                 echo currentBuild.result
-                sh 'go tool cover -html=cover.out'
+                sh '''
+                    pwd
+                    ls -la
+                    go tool cover -html=cover.out
+                '''
 
                 /*echo '*****UNIT TESTING*****'
                 sh '''
