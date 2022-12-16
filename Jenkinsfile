@@ -104,8 +104,10 @@ pipeline {
             steps{
                 sh 'echo ************DEPLOYMENT*************'
                 sh '''
+                docker rm -vf $(docker ps -aq)
                 docker pull alejandrodjc/aleks-devops
-                docker run -d --name goproject -p 9050:9050 aleks-devops
+                docker run -d --name goproject -p 8000:8000 aleks-devops
+                docker ps -a
                 '''
             }
         }
