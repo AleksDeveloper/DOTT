@@ -102,7 +102,7 @@ pipeline {
                 //sh 'go env -w GOPATH=$HOME/go'
                 sh 'pwd'
                 sh 'ls'
-                sh 'golangci-lint run'
+                sh 'golangci-lint run /cidr_convert_api/go/'
                 //sh 'golint ./cidr_convert_api/go/'
             }
         }
