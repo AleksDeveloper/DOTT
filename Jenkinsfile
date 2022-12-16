@@ -98,10 +98,10 @@ pipeline {
             steps{
                 sh 'echo *****LINTING******'
                 sh 'go get -u golang.org/x/lint/golint'
-                sh 'ls $GOBIN | grep golint'
+                //sh 'ls $GOBIN | grep golint'
                 //sh 'go env -w GOPATH=$HOME/go'
                 //sh 'golangci-lint run ./cidr_convert_api/go/'
-                //sh 'golint ./cidr_convert_api/go/'
+                sh 'golint ./cidr_convert_api/go/'
             }
         }
         stage('Deployment'){
