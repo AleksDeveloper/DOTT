@@ -60,8 +60,8 @@ pipeline {
                     //(just first time used: go mod tidy)
                 sh '''
                     cd ./cidr_convert_api/go/
-                    go vet .
                     go get github.com/gorilla/mux
+                    go vet .
                 '''
                 
                 echo '*****UNIT TESTING*****'
