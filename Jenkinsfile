@@ -113,11 +113,17 @@ pipeline {
         stage('Deployment'){
             steps{
                 sh 'echo ************DEPLOYMENT*************'
-                sh '''
-                docker rm -vf $(docker ps -aq)
-                docker run -d --name goproject -p 8000:8000 alejandrodjc/aleks-devops
-                docker ps -a
-                '''
+                script{
+                    try{
+                        sh '''
+                        docker rm -vf $(docker ps -aq)
+                        docker run -d --name goproject -p 8000:8000 alejandrodjc/aleks-devops
+                        docker ps -a
+                        '''
+                    }catch(error){
+                        echo error.getMessage()
+                    }
+                }
             }
         }
         stage('Example') {
