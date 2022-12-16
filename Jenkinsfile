@@ -132,6 +132,7 @@ pipeline {
             steps {
                 sh 'echo ***********GO VERSION*******************'
                 sh 'go version'
+                sh 'echo EVALUATION'
             }
         }
     }
