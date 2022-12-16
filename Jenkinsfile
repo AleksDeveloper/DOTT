@@ -61,6 +61,7 @@ pipeline {
                 sh '''
                     cd ./cidr_convert_api/go/
                     go vet .
+                    go get github.com/gorilla/mux
                 '''
                 
                 echo '*****UNIT TESTING*****'
