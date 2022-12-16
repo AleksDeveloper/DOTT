@@ -59,6 +59,8 @@ pipeline {
                     //(just first time used: go mod init example.com/m)
                     //(just first time used: go mod tidy)
                 sh '''
+                    go mod init github.com/aleksdeveloper/DOTT
+                    go mod tidy
                     cd ./cidr_convert_api/go/
                     go vet .
                 '''
