@@ -1,0 +1,20 @@
+linters:
+  enable:
+    - errcheck
+    - funlen
+    - gofmt
+    - gosimple
+    - ifshort
+    - predeclared
+
+linters-settings:
+  funlen:
+    lines: 20
+    statements: 20
+  gofmt:
+    simplify: true
+
+run:
+  skip-dirs:
+    - .git
+    - vendor
