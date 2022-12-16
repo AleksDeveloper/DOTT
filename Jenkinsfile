@@ -61,6 +61,7 @@ pipeline {
                 sh '''
                     cd ./cidr_convert_api/go/
                     go get github.com/gorilla/mux
+                    go get github.com/stretchr/testify/assert
                     go vet .
                 '''
                 
